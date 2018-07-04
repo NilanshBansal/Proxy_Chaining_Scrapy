@@ -23,8 +23,12 @@ ROBOTSTXT_OBEY = False
 
 DOWNLOADER_MIDDLEWARES = {
 	# 'tutorial.middlewares.CustomProxyMiddleware': 350,
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 400
+    # 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 400
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
 }
+ROTATING_PROXY_LIST = ['103.23.134.106:8080', '79.143.132.11:8080']
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
